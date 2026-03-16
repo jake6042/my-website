@@ -73,7 +73,16 @@ export default function Contact() {
         </div>
 
         <p className="mt-8 sm:mt-12 text-gray-500 font-mono text-xs sm:text-sm px-4">
-          © 2026 • Built with React & Tailwind CSS
+          © 2026 • Built with React & Tailwind CSS •{' '}
+          <a
+            href="https://github.com/jake6042/my-website"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 hover:text-gray-300 transition-colors underline underline-offset-2"
+          >
+            <Github className="w-3 h-3" />
+            View on GitHub
+          </a>
         </p>
       </div>
     </section>
