@@ -1,0 +1,25 @@
+import { useEffect, useRef, useState } from 'react';
+
+export function useInView(options = {}) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.08, ...options }
+    );
+
+    const el = ref.current;
+    if (el) observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, inView];
+}
